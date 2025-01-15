@@ -278,7 +278,7 @@ a:hover {
 
 /* Footer Styles */
 footer {
-    background: #222;
+    background: #222222;
     color: #fff;
     padding: 3rem 0;
     text-align: center;
@@ -287,6 +287,7 @@ footer {
 footer p {
     margin-bottom: 1rem;
     font-size: 1.1rem;
+    color: #ddd;
 }
 
 footer .social-links {
