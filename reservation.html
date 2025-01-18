@@ -12,6 +12,10 @@
             const date = document.getElementById("date").value;
             const time = document.getElementById("time").value;
             const guests = document.getElementById("guests").value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const specialRequests = document.getElementById("special-requests").value;
             const currentDate = new Date().toISOString().split('T')[0];
             
             if (guests < 1) {
@@ -29,6 +33,21 @@
                 return false;
             }
 
+            // Save the reservation to localStorage
+            const reservation = {
+                name: name,
+                email: email,
+                phone: phone,
+                date: date,
+                time: time,
+                guests: guests,
+                specialRequests: specialRequests
+            };
+            
+            let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+            reservations.push(reservation);
+            localStorage.setItem("reservations", JSON.stringify(reservations));
+
             document.getElementById("reservation-form").style.display = "none";
             document.getElementById("loading-spinner").style.display = "block";
 
@@ -38,7 +57,7 @@
                 document.getElementById("loading-spinner").style.display = "none";
                 document.getElementById("reservation-form").style.display = "block";
             }, 2000);
-            
+
             return false;
         }
 
