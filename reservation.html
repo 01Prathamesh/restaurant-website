@@ -12,9 +12,15 @@
             const date = document.getElementById("date").value;
             const time = document.getElementById("time").value;
             const guests = document.getElementById("guests").value;
+            const currentDate = new Date().toISOString().split('T')[0];
             
             if (guests < 1) {
                 alert("Number of guests must be at least 1.");
+                return false;
+            }
+
+            if (date < currentDate) {
+                alert("Please select a future date for your reservation.");
                 return false;
             }
 
@@ -23,8 +29,17 @@
                 return false;
             }
 
-            alert("Reservation Submitted! Thank you for choosing Taj Palace.");
-            return true;
+            document.getElementById("reservation-form").style.display = "none";
+            document.getElementById("loading-spinner").style.display = "block";
+
+            setTimeout(function() {
+                alert("Reservation Submitted! Thank you for choosing Taj Palace.");
+                document.getElementById("reservation-form").reset();
+                document.getElementById("loading-spinner").style.display = "none";
+                document.getElementById("reservation-form").style.display = "block";
+            }, 2000);
+            
+            return false;
         }
 
         function resetForm() {
@@ -80,7 +95,7 @@
                 </div>
                 <div class="form-group">
                     <label for="date">Reservation Date</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" name="date" min="" required>
                 </div>
                 <div class="form-group">
                     <label for="time">Reservation Time</label>
@@ -97,6 +112,7 @@
                 <button type="submit" class="btn">Submit Reservation</button>
                 <button type="button" class="btn" onclick="resetForm()">Reset Form</button>
             </form>
+            <div id="loading-spinner" style="display:none;">Submitting your reservation... <img src="assets/images/spinner.gif" alt="Loading..." /></div>
         </div>
     </section>
 </main>
