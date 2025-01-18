@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/images/Taj palace.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        function validateForm() {
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const guests = document.getElementById("guests").value;
+            
+            if (guests < 1) {
+                alert("Number of guests must be at least 1.");
+                return false;
+            }
+
+            if (date === "" || time === "") {
+                alert("Please select both date and time for your reservation.");
+                return false;
+            }
+
+            alert("Reservation Submitted! Thank you for choosing Taj Palace.");
+            return true;
+        }
+
+        function resetForm() {
+            document.getElementById("reservation-form").reset();
+        }
+    </script>
 </head>
 <body>
 
@@ -41,7 +65,7 @@
     <section class="reservation-form">
         <div class="container">
             <h2>Make a Reservation</h2>
-            <form action="#" method="post">
+            <form id="reservation-form" action="#" method="post" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="Your Full Name" required>
@@ -71,6 +95,7 @@
                     <textarea id="special-requests" name="special-requests" rows="4" placeholder="Any special requests?"></textarea>
                 </div>
                 <button type="submit" class="btn">Submit Reservation</button>
+                <button type="button" class="btn" onclick="resetForm()">Reset Form</button>
             </form>
         </div>
     </section>
@@ -81,7 +106,7 @@
         <div class="footer-grid">
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p>123 Ganesh Plaza, Panchavati,Nashik 123098</p>
+                <p>123 Ganesh Plaza, Panchavati, Nashik 123098</p>
                 <p>Phone: (+91) 123-456-7890</p>
                 <p>Email: info@tajpalace.com</p>
             </div>
