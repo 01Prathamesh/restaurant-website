@@ -32,14 +32,33 @@ if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
-// Contact Form Submission (Mock Functionality)
-const contactForm = document.querySelector('.contact form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-    });
+//Thank You Message for contact.html
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Create a contact message object
+    const contactMessage = {
+        name,
+        email,
+        message,
+    };
+    
+     // Retrieve existing messages from localStorage or initialize an empty array
+     const contactMessages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+
+     // Add the new message to the array
+     contactMessages.push(contactMessage);
+ 
+     // Save updated messages back to localStorage
+     localStorage.setItem("contactMessages", JSON.stringify(contactMessages));
+ 
+    alert('Thank you for your message! We will get back to you shortly.');
+    document.getElementById('contact-form').reset();
 }
 
 // Highlight Active Navigation Link on Scroll
@@ -99,11 +118,4 @@ if (scrollToTopButton) {
     scrollToTopButton.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-}
-
-//Thank You Message for contact.html
-function handleFormSubmit(event) {
-    event.preventDefault();
-    alert('Thank you for your message! We will get back to you shortly.');
-    document.getElementById('contact-form').reset();
 }
