@@ -5,87 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Taj Palace</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script>
+        // Check login status before loading the admin page
+        if (!localStorage.getItem('loggedIn')) {
+            // If not logged in, redirect to login page
+            window.location.href = 'login.html';
+        }
+    </script>
     <script src="assets/js/scripts.js"></script>
     <link rel="icon" href="assets/images/Taj palace.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-        }
-        header .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header .navbar .container .logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-            text-decoration: none;
-        }
-        header .navbar .container .nav-links {
-            list-style: none;
-            display: flex;
-        }
-        header .navbar .container .nav-links li {
-            margin-left: 20px;
-        }
-        header .navbar .container .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        main {
-            padding: 40px 20px;
-        }
-        .admin {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .admin h1 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .admin h2 {
-            font-size: 2rem;
-            color: #444;
-            margin-top: 30px;
-        }
-        .reservation-item, .message-item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .reservation-item p, .message-item p {
-            margin: 5px 0;
-            color: #555;
-        }
-        .reservation-item strong, .message-item strong {
-            font-weight: 600;
-        }
-        .reservation-item hr, .message-item hr {
-            border: 1px solid #eee;
-            margin: 15px 0;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -97,6 +26,7 @@
                     <li><a href="reservation.html">Reserve a Table</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="admin.html">Admin</a></li>
+                    <li><button id="logout-button">Logout</button></li>
                 </ul>
             </div>
         </nav>
@@ -124,11 +54,38 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Taj Palace. All Rights Reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>123 Ganesh Plaza, Panchavati, Nashik 123098</p>
+                    <p>Phone: (+91) 123-456-7890</p>
+                    <p>Email: info@tajpalace.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul class="social-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
+                    <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+            </div>
+            <p>&copy; 2025 Taj Palace. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a></p>
         </div>
     </footer>
 
     <script>
+        //Redirect on Logout, Logout button script
+        document.getElementById('logout-button').addEventListener('click', () => {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
+        });
+        
         // Fetch and display the reservations from localStorage
         const reservations = JSON.parse(localStorage.getItem("reservations")) || [];
         const reservationsList = document.getElementById("reservations-list");
