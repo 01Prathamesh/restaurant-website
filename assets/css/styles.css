@@ -680,3 +680,123 @@ textarea {
 #logout-button:focus {
     outline: 2px solid #ff9999;
 }
+
+/* Styling for Offers Section */
+
+/* Section Styling */
+.offers {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Heading Styles */
+.offers h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Offer List */
+.offers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Individual Offer Card */
+.offer {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.offer:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Offer Title */
+.offer h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+/* Offer Description */
+.offer p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Strong Text */
+.offer p strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Note styling */
+.offers p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 20px;
+}
+
+.offers a {
+    color: #e74c3c;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.offers a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .offers h2 {
+        font-size: 2rem;
+    }
+
+    .offers-list {
+        grid-template-columns: 1fr;
+    }
+
+    .offer {
+        padding: 15px;
+    }
+
+    .offer h3 {
+        font-size: 1.6rem;
+    }
+
+    .offer p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .offers h2 {
+        font-size: 1.8rem;
+    }
+
+    .offer {
+        padding: 10px;
+    }
+
+    .offer h3 {
+        font-size: 1.4rem;
+    }
+
+    .offer p {
+        font-size: 0.95rem;
+    }
+}
