@@ -37,16 +37,25 @@
             <div class="container">
                 <h1>Admin Dashboard</h1>
                 
+                <!-- Reservations Section -->
                 <h2>Reservations</h2>
                 <div id="reservations-list">
                     <!-- Reservations will be displayed here -->
                     <p>Loading reservations...</p>
                 </div>
 
+                <!-- Contact Messages Section -->
                 <h2>Contact Messages</h2>
                 <div id="contact-messages-list">
                     <!-- Contact messages will be displayed here -->
                     <p>Loading messages...</p>
+                </div>
+
+                <!-- Event Registrations Section -->
+                <h2>Event Registrations</h2>
+                <div id="event-registrations-list">
+                    <!-- Event registrations will be displayed here -->
+                    <p>Loading event registrations...</p>
                 </div>
             </div>
         </section>
@@ -80,12 +89,12 @@
     </footer>
 
     <script>
-        //Redirect on Logout, Logout button script
+        // Redirect on Logout, Logout button script
         document.getElementById('logout-button').addEventListener('click', () => {
             localStorage.removeItem('loggedIn');
             window.location.href = 'login.html';
         });
-        
+
         // Fetch and display the reservations from localStorage
         const reservations = JSON.parse(localStorage.getItem("reservations")) || [];
         const reservationsList = document.getElementById("reservations-list");
@@ -115,8 +124,6 @@
         const contactMessages = JSON.parse(localStorage.getItem("contactMessages")) || [];
         const contactMessagesList = document.getElementById("contact-messages-list");
 
-        console.log(contactMessages); // Debugging line to check data in the console
-
         if (contactMessages.length === 0) {
             contactMessagesList.innerHTML = "<p>No messages yet.</p>";
         } else {
@@ -131,6 +138,29 @@
                     <hr>
                 `;
                 contactMessagesList.appendChild(messageItem);
+            });
+        }
+
+        // Fetch and display the event registrations from localStorage
+        const eventRegistrations = JSON.parse(localStorage.getItem("eventRegistrations")) || [];
+        const eventRegistrationsList = document.getElementById("event-registrations-list");
+
+        if (eventRegistrations.length === 0) {
+            eventRegistrationsList.innerHTML = "<p>No event registrations yet.</p>";
+        } else {
+            eventRegistrations.forEach((registration, index) => {
+                const registrationItem = document.createElement("div");
+                registrationItem.classList.add("registration-item");
+                registrationItem.innerHTML = `
+                    <p><strong>Registration #${index + 1}</strong></p>
+                    <p><strong>Name:</strong> ${registration.fullName}</p>
+                    <p><strong>Email:</strong> ${registration.email}</p>
+                    <p><strong>Phone:</strong> ${registration.phone}</p>
+                    <p><strong>Event:</strong> ${registration.event}</p>
+                    <p><strong>Message:</strong> ${registration.message}</p>
+                    <hr>
+                `;
+                eventRegistrationsList.appendChild(registrationItem);
             });
         }
     </script>
