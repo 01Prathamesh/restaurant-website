@@ -624,11 +624,11 @@ textarea {
     margin-bottom: 20px;
 }
 
-#reservations-list, #contact-messages-list {
+#reservations-list, #contact-messages-list, #event-registrations-list {
     margin-top: 20px;
 }
 
-.reservation-item, .message-item {
+.reservation-item, .message-item, .registration-item {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -636,18 +636,18 @@ textarea {
     margin-bottom: 20px;
 }
 
-.reservation-item p, .message-item p {
+.reservation-item p, .message-item p, .registration-item p {
     font-size: 0.95rem;
     margin: 5px 0;
     color: #555;
 }
 
-.reservation-item strong, .message-item strong {
+.reservation-item strong, .message-item strong, .registration-item strong {
     font-weight: 600;
     color: #333;
 }
 
-.reservation-item hr, .message-item hr {
+.reservation-item hr, .message-item hr, .registration-item hr {
     border: 1px solid #eee;
     margin: 15px 0;
 }
