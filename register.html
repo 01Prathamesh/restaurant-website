@@ -35,7 +35,7 @@
                 <h2>Register for Event</h2>
                 <p>Sign up to attend our upcoming events. Please fill out the form below.</p>
                 
-                <form action="submit-registration.php" method="POST">
+                <form id="event-form">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" required>
@@ -97,5 +97,39 @@
             <p>&copy; 2025 Taj Palace. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('event-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const eventSelected = document.getElementById('event').value;
+            const message = document.getElementById('message').value;
+
+            // Create the registration object
+            const registration = {
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                event: eventSelected,
+                message: message
+            };
+
+            // Store the registration data in localStorage
+            let registrations = JSON.parse(localStorage.getItem("eventRegistrations")) || [];
+            registrations.push(registration);
+            localStorage.setItem("eventRegistrations", JSON.stringify(registrations));
+
+            // Inform the user that the registration is successful
+            alert("Registration successful!");
+
+            // Optionally, clear the form after submission
+            document.getElementById('event-form').reset();
+        });
+    </script>
 </body>
 </html>
