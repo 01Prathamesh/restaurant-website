@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/images/Taj palace.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> <!-- Moment.js for date manipulation -->
+    <script>
+        // Countdown Timer Function
+        function updateCountdown() {
+            const eventDate = moment('2025-02-20T00:00:00'); // Bollywood Night Date
+            const now = moment();
+            const duration = moment.duration(eventDate.diff(now));
+            
+            document.getElementById('countdown').innerHTML = `
+                <p>Time left for Bollywood Night: ${duration.days()} days ${duration.hours()} hours ${duration.minutes()} minutes ${duration.seconds()} seconds</p>
+            `;
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
 </head>
 <body>
     <header>
@@ -34,21 +50,28 @@
             <div class="container">
                 <h2>Upcoming Events</h2>
                 <p>Join us for special occasions and themed dining experiences.</p>
+
+                <!-- Countdown Timer for Bollywood Night -->
+                <div id="countdown"></div>
+                
                 <ul class="events-list">
                     <li>
                         <h3>Bollywood Night</h3>
                         <p>Date: February 20, 2025</p>
                         <p>Experience a night of music, dance, and authentic Indian cuisine.</p>
+                        <a href="register.html" class="btn">Register for Event</a>
                     </li>
                     <li>
                         <h3>Cooking Masterclass</h3>
                         <p>Date: March 5, 2025</p>
                         <p>Learn the secrets of Indian cooking with our head chef.</p>
+                        <a href="register.html" class="btn">Register for Event</a>
                     </li>
                     <li>
                         <h3>Wine Pairing Dinner</h3>
                         <p>Date: April 10, 2025</p>
                         <p>Enjoy a curated menu paired with fine wines.</p>
+                        <a href="register.html" class="btn">Register for Event</a>
                     </li>
                 </ul>
             </div>
