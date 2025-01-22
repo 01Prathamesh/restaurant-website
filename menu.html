@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/images/Taj palace.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -31,49 +32,114 @@
             <div class="container">
                 <h1>Our Menu</h1>
                 <p>Explore our selection of authentic Indian delicacies, carefully crafted for an unforgettable culinary experience.</p>
+
+                <!-- Search Bar -->
+                <input type="text" id="menuSearch" placeholder="Search for items..." class="search-bar">
+
+                <!-- Filter Dropdown -->
+                <select id="categoryFilter" class="category-filter">
+                    <option value="">Filter by Category</option>
+                    <option value="Appetizers">Appetizers</option>
+                    <option value="Main Courses">Main Courses</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Beverages">Beverages</option>
+                </select>
+
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="Appetizers">
                         <h2>Appetizers</h2>
                         <div class="menu-item-content">
                             <img src="assets/images/tp2.jpg" alt="Samosa" style="width: 100%; height: auto; max-width: 300px; object-fit: cover;">
                             <ul>
-                                <li><span>Paneer Tikka</span> - ₹350</li>
-                                <li><span>Vegetable Samosa</span> - ₹150</li>
-                                <li><span>Hara Bhara Kebab</span> - ₹180</li>
+                                <li>
+                                    <span>Paneer Tikka</span> - ₹350
+                                    <span class="item-rating">⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Vegetable Samosa</span> - ₹150
+                                    <span class="item-rating">⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Hara Bhara Kebab</span> - ₹180
+                                    <span class="item-rating">⭐⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
                             </ul>
                         </div>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="Main Courses">
                         <h2>Main Courses</h2>
                         <div class="menu-item-content">
                             <img src="assets/images/tp6.jpg" alt="Dal Dhokali" style="width: 100%; height: auto; max-width: 300px; object-fit: cover;">
                             <ul>
-                                <li><span>Butter Chicken</span> - ₹500</li>
-                                <li><span>Dal Makhani</span> - ₹350</li>
-                                <li><span>Paneer Lababdar</span> - ₹450</li>
-                                <li><span>Rogan Josh</span> - ₹550</li>
+                                <li>
+                                    <span>Butter Chicken</span> - ₹500
+                                    <span class="item-rating">⭐⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Dal Makhani</span> - ₹350
+                                    <span class="item-rating">⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Paneer Lababdar</span> - ₹450
+                                    <span class="item-rating">⭐⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Rogan Josh</span> - ₹550
+                                    <span class="item-rating">⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
                             </ul>
                         </div>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="Desserts">
                         <h2>Desserts</h2>
                         <div class="menu-item-content">
                             <img src="assets/images/tp4.jpg" alt="Dori chapati" style="width: 100%; height: auto; max-width: 300px; object-fit: cover;">
                             <ul>
-                                <li><span>Gulab Jamun</span> - ₹120</li>
-                                <li><span>Rasgulla</span> - ₹100</li>
-                                <li><span>Gajar ka Halwa</span> - ₹180</li>
+                                <li>
+                                    <span>Gulab Jamun</span> - ₹120
+                                    <span class="item-rating">⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Rasgulla</span> - ₹100
+                                    <span class="item-rating">⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Gajar ka Halwa</span> - ₹180
+                                    <span class="item-rating">⭐⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
                             </ul>
                         </div>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="Beverages">
                         <h2>Beverages</h2>
                         <div class="menu-item-content">
                             <img src="assets/images/tp9.jpeg" alt="Lassi" style="width: 100%; height: auto; max-width: 300px; object-fit: cover;">
                             <ul>
-                                <li><span>Lassi (Sweet or Salted)</span> - ₹120</li>
-                                <li><span>Masala Chai</span> - ₹50</li>
-                                <li><span>Fresh Lime Soda</span> - ₹80</li>
+                                <li>
+                                    <span>Lassi (Sweet or Salted)</span> - ₹120
+                                    <span class="item-rating">⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Masala Chai</span> - ₹50
+                                    <span class="item-rating">⭐⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
+                                <li><br>
+                                    <span>Fresh Lime Soda</span> - ₹80
+                                    <span class="item-rating">⭐⭐⭐⭐</span>
+                                    <button class="add-to-cart">Add to Cart</button>
+                                </li><br>
                             </ul>
                         </div>
                     </div>
@@ -82,12 +148,13 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>123 Ganesh Plaza, Panchavati,Nashik 123098</p>
+                    <p>123 Ganesh Plaza, Panchavati, Nashik 123098</p>
                     <p>Phone: (+91) 123-456-7890</p>
                     <p>Email: info@tajpalace.com</p>
                 </div>
@@ -108,5 +175,34 @@
             <p>&copy; 2025 Taj Palace. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a></p>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Search Functionality
+        $("#menuSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".menu-item").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+
+        // Filter Functionality
+        $("#categoryFilter").on("change", function() {
+            var filterValue = $(this).val().toLowerCase();
+            $(".menu-item").each(function() {
+                var category = $(this).data("category").toLowerCase();
+                if (filterValue === "" || category === filterValue) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+
+        // Add to Cart (basic interaction)
+        $(".add-to-cart").on("click", function() {
+            alert("Item added to cart!");
+        });
+    </script>
 </body>
 </html>
