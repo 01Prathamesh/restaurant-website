@@ -800,3 +800,121 @@ textarea {
         font-size: 0.95rem;
     }
 }
+
+/* Container for the Search and Filter Elements */
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style for the Search Bar */
+.search-bar {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
+}
+
+/* Style for the Filter Dropdown */
+.category-filter {
+    width: 25%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.category-filter:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .category-filter {
+        width: 100%;
+    }
+}
+
+/* Style for Item Rating (Stars) */
+.item-rating {
+    font-size: 1.2rem;
+    color: #ffcc00;
+    margin-left: 10px;
+}
+
+/* Style for Add to Cart Button */
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Hover Effect for Add to Cart Button */
+.add-to-cart:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Focus Effect for Add to Cart Button */
+.add-to-cart:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.6);
+}
+
+/* Disabled Add to Cart Button */
+.add-to-cart:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+/* Responsive Design for Item Rating and Button */
+@media screen and (max-width: 768px) {
+    .item-rating {
+        font-size: 1.1rem;
+    }
+
+    .add-to-cart {
+        width: 100%;
+        padding: 12px 0;
+    }
+}
