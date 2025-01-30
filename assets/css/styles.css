@@ -918,3 +918,59 @@ textarea {
         padding: 12px 0;
     }
 }
+
+.feedback {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.feedback h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.feedback p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.feedback form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.feedback label {
+    text-align: left;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.feedback input,
+.feedback select,
+.feedback textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.feedback button {
+    padding: 10px 20px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.feedback button:hover {
+    background-color: #d35400;
+}
