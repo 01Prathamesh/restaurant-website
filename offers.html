@@ -40,6 +40,23 @@
         <section class="offers">
             <div class="container">
                 <h2>Current Special Offers</h2>
+
+                <!-- Offer Categories -->
+                <div class="offer-categories">
+                    <div class="category">
+                        <h3>Food Offers</h3>
+                        <p>Delicious meals and amazing discounts for food lovers.</p>
+                    </div>
+                    <div class="category">
+                        <h3>Family Deals</h3>
+                        <p>Special offers for family-sized meals and gatherings.</p>
+                    </div>
+                    <div class="category">
+                        <h3>Special Events</h3>
+                        <p>Exclusive promotions during festivals and celebrations.</p>
+                    </div>
+                </div>
+
                 <div class="offers-list">
                     <div class="offer">
                         <h3>Weekday Lunch Special</h3>
@@ -62,6 +79,19 @@
                         <p><strong>Offer Valid:</strong> Monday to Thursday, 5:00 PM - 9:00 PM</p>
                     </div>
                 </div>
+
+                <!-- Countdown Timer Section -->
+                <div class="countdown">
+                    <p><strong>Hurry! Offer ends in:</strong> <span id="countdown"></span></p>
+                </div>
+
+                <!-- Promo Code Section -->
+                <div class="promo-code">
+                    <h3>Use Promo Code for Extra Savings!</h3>
+                    <input type="text" id="promoCode" placeholder="Enter Promo Code">
+                    <button onclick="applyPromoCode()">Apply Code</button>
+                </div>
+
                 <p><strong>Note:</strong> Offers cannot be combined with any other promotions or discounts. For more information, feel free to <a href="contact.html">contact us</a>.</p>
             </div>
         </section>
@@ -85,6 +115,19 @@
                 </div>
             </div>
         </section>
+
+        <!-- Newsletter Subscription -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Stay Updated</h2>
+                <p>Sign up for our newsletter to receive exclusive offers and updates.</p>
+                <form action="subscribe.html" method="POST">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -113,5 +156,37 @@
             <p>&copy; 2025 Taj Palace. All Rights Reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a></p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Countdown timer script
+        function updateCountdown() {
+            const targetDate = new Date("February 10, 2025 23:59:59").getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "Offer Expired!";
+                clearInterval(countdownInterval);
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Promo code application function
+        function applyPromoCode() {
+            const code = document.getElementById("promoCode").value;
+            if (code === "TAJ25") {
+                alert("Promo code applied! You get a 25% discount on your order.");
+            } else {
+                alert("Invalid promo code.");
+            }
+        }
+    </script>
 </body>
 </html>
